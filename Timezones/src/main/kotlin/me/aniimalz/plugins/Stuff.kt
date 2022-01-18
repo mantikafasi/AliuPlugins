@@ -2,6 +2,7 @@ package me.aniimalz.plugins
 
 import android.os.Build
 import androidx.annotation.RequiresApi
+import com.discord.utilities.SnowflakeUtils
 import java.time.Instant
 import java.time.ZoneOffset
 import java.time.ZonedDateTime
@@ -57,10 +58,12 @@ fun calculateTime(timezone: String?, use24Hour: Boolean): String {
            timezone
         )
     )
+
     val timeAmPm =
         format12.format(format24.parse("${timeInUtc.hour}:${timeInUtc.minute}")!!)
     return if (use24Hour) "${timeInUtc.hour}:${timeInUtc.minute}" else timeAmPm
 }
+
 
 @RequiresApi(Build.VERSION_CODES.O)
 fun formatTimeText(timezone: String?, use24Hour: Boolean):String {

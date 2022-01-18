@@ -9,6 +9,7 @@ import com.aliucord.Utils
 import com.aliucord.annotations.AliucordPlugin
 import com.aliucord.entities.Plugin
 import com.aliucord.patcher.Hook
+import com.aliucord.patcher.after
 import com.discord.models.message.Message
 import com.discord.widgets.chat.list.adapter.WidgetChatListAdapterItemMessage
 import com.lytefast.flexinput.R
@@ -34,7 +35,7 @@ class PinIcon : Plugin() {
                 ), Hook { cf: XC_MethodHook.MethodHookParam ->
                     try {
                         val msg = cf.args[0] as Message
-                        @Suppress("SENSELESS_COMPARISON") // kys android
+                        @Suppress("SENSELESS_COMPARISON") // kys android this is not senseless
                         if (msg != null && msg.pinned) {
                             val textView = itemTimestampField.get(cf.thisObject) as TextView
                             textView.setCompoundDrawablesRelativeWithIntrinsicBounds(
